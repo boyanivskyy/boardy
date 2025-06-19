@@ -3,7 +3,13 @@
 import { Plus } from "lucide-react";
 import { CreateOrganization } from "@clerk/nextjs";
 
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+	Dialog,
+	DialogContent,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "@/components/ui/dialog";
 import { Hint } from "@/components/hint";
 
 export const NewButton = () => {
@@ -25,6 +31,9 @@ export const NewButton = () => {
 			</DialogTrigger>
 
 			<DialogContent className="p-0 bg-transparent border-none w-[432px]">
+				<DialogHeader>
+					<DialogTitle></DialogTitle>
+				</DialogHeader>
 				<CreateOrganization />
 			</DialogContent>
 		</Dialog>
