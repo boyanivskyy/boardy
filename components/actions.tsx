@@ -67,9 +67,10 @@ export const Actions = ({
 					className="p-3 cursor-pointer"
 					onClick={onCopyLink}
 				>
-					<Link2 className="h4 w-4 mr-2" />
+					<Link2 className="h-4 w-4 mr-2" />
 					Copy board link
 				</DropdownMenuItem>
+				<DropdownMenuSeparator />
 				<ConfirmModal
 					header="Delete Board?"
 					description="This will delete the board and all of it's content"
@@ -81,15 +82,16 @@ export const Actions = ({
 						className="p-3 cursor-pointer text-sm w-full justify-start font-normal"
 						// onClick={onDeleteBoard}
 					>
-						<Trash2 className=" fill-red-500 h4 w-4 mr-2" />
+						<Trash2 className="fill-red-500 h-4 w-4 mr-2" />
 						Delete
 					</Button>
 				</ConfirmModal>
+				<DropdownMenuSeparator />
 				<DropdownMenuItem
 					className="p-3 cursor-pointer"
 					onClick={onRenameBoard}
 				>
-					<Pencil className="h4 w-4 mr-2" />
+					<Pencil className="fill-blue-500 h-4 w-4 mr-2" />
 					Rename
 				</DropdownMenuItem>
 			</DropdownMenuContent>
