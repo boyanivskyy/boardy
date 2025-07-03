@@ -1,3 +1,5 @@
+"use client";
+
 import { Skeleton } from "@/components/ui/skeleton";
 
 export const Participants = () => {
@@ -8,10 +10,10 @@ export const Participants = () => {
 	);
 };
 
-Participants.Skeleton = function ParticipantsSkeleton() {
+export function ParticipantsSkeleton() {
 	return (
 		<div className="absolute h-12 top-2 right-2 bg-white rounded-md p-3 flex items-center shadow-md min-w-[200px]">
 			<Skeleton className="h-full w-full bg-muted" />
 		</div>
 	);
-};
+}

@@ -7,7 +7,7 @@ import { use } from "react";
 import { EmptySearch } from "./empty-search";
 import { EmptyFavorites } from "./empty-favorites";
 import { EmptyBoards } from "./empty-boards";
-import { BoardCard } from "./board-card";
+import { BoardCard, BoardCardSkeleton } from "./board-card";
 import { NewBoardButton } from "./new-board-button";
 
 interface BoardListProps {
@@ -29,7 +29,7 @@ export const BoardList = ({ orgId, query }: BoardListProps) => {
 				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-5 mt-8 bp-10">
 					<NewBoardButton orgId={orgId} disabled={true} />
 					{[1, 2, 3, 4, 5, 6, 7, 8, 9].map((key) => (
-						<BoardCard.Skeleton key={key} />
+						<BoardCardSkeleton key={key} />
 					))}
 				</div>
 			</div>

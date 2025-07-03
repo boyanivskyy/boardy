@@ -12,10 +12,10 @@ interface RoomProps {
 }
 
 export const Room = ({ children, roomId, fallback }: RoomProps) => {
-	console.log("Room", roomId);
+	// publicApiKey="pk_dev_elOX6L-GoG-ZXyhM1HfbrPld58hDVcYCXLfPUi2xzm_1CNCXS0YPAAYf4eUpY5mG"
 
 	return (
-		<LiveblocksProvider publicApiKey="pk_dev_elOX6L-GoG-ZXyhM1HfbrPld58hDVcYCXLfPUi2xzm_1CNCXS0YPAAYf4eUpY5mG">
+		<LiveblocksProvider authEndpoint="/api/liveblocks-auth">
 			<RoomProvider
 				id={roomId}
 				initialPresence={(roomId) => (
