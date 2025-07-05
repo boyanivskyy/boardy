@@ -20,9 +20,10 @@ export async function POST(request: Request) {
 		user,
 	});
 
-	if (!authorization || !user) {
-		return new Response("Unathorized", { status: 403 });
-	}
+	// FIXME: uncomment to make the auth work properly
+	// if (!authorization || !user) {
+	// 	return new Response("Unathorized", { status: 403 });
+	// }
 
 	const { room } = await request.json();
 	const board = await convex.query(api.board.get, { id: room });
