@@ -245,6 +245,10 @@ export const Canvas = ({ boardId }: CanvasProps) => {
 			}
 
 			// TODO: add case for drawing
+			if (canvasState.mode === CanvasMode.Pencil) {
+				console.log("drawing");
+				return;
+			}
 
 			setCanvasState({ mode: CanvasMode.Pressing, origin: point });
 		},
