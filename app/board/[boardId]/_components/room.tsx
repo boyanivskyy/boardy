@@ -14,8 +14,6 @@ interface RoomProps {
 }
 
 export const Room = ({ children, roomId, fallback }: RoomProps) => {
-	// publicApiKey="pk_dev_elOX6L-GoG-ZXyhM1HfbrPld58hDVcYCXLfPUi2xzm_1CNCXS0YPAAYf4eUpY5mG"
-
 	return (
 		<LiveblocksProvider authEndpoint="/api/liveblocks-auth" throttle={16}>
 			<RoomProvider

@@ -7,7 +7,7 @@ import { api } from "@/convex/_generated/api";
 const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
 
 const liveblocks = new Liveblocks({
-	secret: "sk_dev_wc3nBuA4gvlk__L009K5V51NIdydNpJXAmqqhEhnp6ZrV7r_tJjEzVVNiiyc3Hc0",
+	secret: process.env.LIVEBLOCKS_SECRET_KEY!,
 });
 
 export async function POST(request: Request) {
@@ -21,9 +21,9 @@ export async function POST(request: Request) {
 	});
 
 	// FIXME: uncomment to make the auth work properly
-	// if (!authorization || !user) {
-	// 	return new Response("Unathorized", { status: 403 });
-	// }
+	if (!authorization || !user) {
+		return new Response("Unathorized", { status: 403 });
+	}
 
 	const { room } = await request.json();
 	const board = await convex.query(api.board.get, { id: room });

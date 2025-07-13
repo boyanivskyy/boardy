@@ -3,24 +3,24 @@
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 
-import { use } from "react";
 import { EmptySearch } from "./empty-search";
 import { EmptyFavorites } from "./empty-favorites";
 import { EmptyBoards } from "./empty-boards";
 import { BoardCard, BoardCardSkeleton } from "./board-card";
 import { NewBoardButton } from "./new-board-button";
+import { useSearchParams } from "next/navigation";
+import React from "react";
 
 interface BoardListProps {
 	orgId: string;
-	query: Promise<{
-		search?: string;
-		favorites?: string;
-	}>;
 }
 
-export const BoardList = ({ orgId, query }: BoardListProps) => {
-	const { search, favorites } = use(query);
-	const data = useQuery(api.boards.get, { orgId, search, favorites });
+export const BoardList = ({ orgId }: BoardListProps) => {
+	const params = useSearchParams();
+	const favorites = params.get("favorites") || "";
+	const search = params.get("search") || "";
+
+	const data = useQuery(api.boards.get, { orgId, favorites, search });
 
 	if (data === undefined) {
 		return (

@@ -1,13 +1,21 @@
+"use client";
+
+import { useEffect } from "react";
 import { Canvas } from "./_components/canvas";
 import { Loading } from "./_components/loading";
 import { Room } from "./_components/room";
+import { usePathname } from "next/navigation";
 
-interface BoardIdPageProps {
-	params: { boardId: string };
-}
+// interface BoardIdPageProps {
+// 	params: { boardId: string };
+// }
 
-const BoardIdPage = async ({ params }: BoardIdPageProps) => {
-	const boardId = (await params).boardId;
+const BoardIdPage = () => {
+	const boardId = usePathname().split("/").pop()!;
+
+	useEffect(() => {
+		document.title = `Board - Miro Clone`;
+	}, []);
 
 	return (
 		<Room roomId={boardId} fallback={<Loading />}>
